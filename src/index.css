@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 20% 98%;
+    --foreground: 220 50% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 50% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 50% 12%;
+
+    --primary: 215 60% 18%;
+    --primary-foreground: 40 30% 95%;
+
+    --secondary: 220 20% 94%;
+    --secondary-foreground: 220 50% 12%;
+
+    --muted: 220 20% 94%;
+    --muted-foreground: 220 15% 45%;
+
+    --accent: 32 95% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 20% 88%;
+    --input: 220 20% 88%;
+    --ring: 32 95% 55%;
+
+    --radius: 0.75rem;
+
+    /* Custom Jiva Estates tokens - Enhanced */
+    --navy: 215 60% 18%;
+    --navy-light: 215 50% 28%;
+    --navy-dark: 215 70% 10%;
+    --gold: 32 95% 55%;
+    --gold-light: 38 100% 65%;
+    --gold-dark: 28 90% 45%;
+    --emerald: 160 84% 39%;
+    --emerald-light: 160 70% 50%;
+    --cream: 40 40% 97%;
+    --grey-light: 220 20% 96%;
+    --grey-medium: 220 15% 85%;
+
+    /* Enhanced Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(215 60% 18% / 0.95), hsl(215 50% 28% / 0.85));
+    --gradient-gold: linear-gradient(135deg, hsl(28 90% 45%), hsl(38 100% 65%));
+    --gradient-gold-shine: linear-gradient(135deg, hsl(32 95% 55%), hsl(45 100% 70%), hsl(32 95% 55%));
+    --gradient-emerald: linear-gradient(135deg, hsl(160 84% 39%), hsl(160 70% 50%));
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%), hsl(220 20% 98%));
+    --gradient-colorful: linear-gradient(135deg, hsl(215 60% 18%), hsl(32 95% 55%));
+
+    /* Enhanced Shadows */
+    --shadow-sm: 0 2px 8px hsl(215 60% 18% / 0.06);
+    --shadow-md: 0 4px 20px hsl(215 60% 18% / 0.1);
+    --shadow-lg: 0 8px 40px hsl(215 60% 18% / 0.15);
+    --shadow-xl: 0 20px 60px hsl(215 60% 18% / 0.2);
+    --shadow-gold: 0 4px 30px hsl(32 95% 55% / 0.4);
+    --shadow-emerald: 0 4px 30px hsl(160 84% 39% / 0.3);
+    --shadow-glow: 0 0 40px hsl(32 95% 55% / 0.5);
+  }
+
+  .dark {
+    --background: 220 50% 6%;
+    --foreground: 40 30% 95%;
+    --card: 220 45% 10%;
+    --card-foreground: 40 30% 95%;
+    --popover: 220 45% 10%;
+    --popover-foreground: 40 30% 95%;
+    --primary: 32 95% 55%;
+    --primary-foreground: 220 50% 12%;
+    --secondary: 220 40% 15%;
+    --secondary-foreground: 40 30% 95%;
+    --muted: 220 40% 15%;
+    --muted-foreground: 220 15% 60%;
+    --accent: 32 95% 55%;
+    --accent-foreground: 220 50% 12%;
+    --border: 220 40% 18%;
+    --input: 220 40% 18%;
+    --ring: 32 95% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+@layer utilities {
+  .text-gradient-gold {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(28 90% 45%), hsl(45 100% 70%));
+  }
+
+  .text-gradient-colorful {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(215 60% 18%), hsl(32 95% 55%));
+  }
+
+  .bg-hero-overlay {
+    background: linear-gradient(135deg, hsl(215 60% 18% / 0.9), hsl(215 50% 28% / 0.8));
+  }
+
+  .bg-glass {
+    @apply bg-white/80 backdrop-blur-lg border border-white/20;
+  }
+
+  .bg-glass-dark {
+    @apply bg-navy/80 backdrop-blur-lg border border-white/10;
+  }
+
+  .card-glass {
+    @apply bg-white/90 backdrop-blur-xl border border-white/30 shadow-lg;
+  }
+
+  .glow-gold {
+    box-shadow: 0 0 40px hsl(32 95% 55% / 0.4);
+  }
+
+  .glow-emerald {
+    box-shadow: 0 0 40px hsl(160 84% 39% / 0.4);
+  }
+
+  .gradient-border {
+    background: linear-gradient(var(--background), var(--background)) padding-box,
+                linear-gradient(135deg, hsl(32 95% 55%), hsl(160 84% 39%)) border-box;
+    border: 2px solid transparent;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+
+  @keyframes glow {
+    from {
+      box-shadow: 0 0 20px hsl(32 95% 55% / 0.3);
+    }
+    to {
+      box-shadow: 0 0 40px hsl(32 95% 55% / 0.6);
+    }
+  }
+}
